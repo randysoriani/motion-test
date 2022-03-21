@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 import {GlobalStyle} from './styles/global';
 
+import { motion } from 'framer-motion';
+import { useState } from 'react';
+
 const Container = styled.div`
   width: 100vw;
   height: 100vh;
@@ -21,12 +24,7 @@ const Container = styled.div`
       display: grid;
       grid-template-columns: 20px  repeat(5, 1fr);
       column-gap: 1rem;
-    }
-
-    .items{
-      dipslay: inline-block;
-      opacity: 0;
-      transform: translateY(-4rem);
+      padding: .5rem;
     }
 
     .items-header{
@@ -39,11 +37,17 @@ const Container = styled.div`
       grid-template-columns: repeat(5, 1fr);
     }
 
+    .items{
+      height: 0;
+      opacity: 0;
+    }
+
   }
 `
 
 
 function App() {
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
@@ -60,41 +64,59 @@ function App() {
           </div>
           <div className="lines">
             <article className="line">
+            
               <div className="summary">
-                <button>+</button>
+                <button onClick={()=>{setIsOpen(!isOpen)}}>v</button>
                 <p>6545654</p>
                 <p>2352,00</p>
                 <p>21/01/2021</p>
                 <p>2,15</p>
                 <p>2354,15</p>
               </div>
-              <div className="items">
-                <div className="items-header">
-                  <p>Ticker</p>
-                  <p>Qty</p>
-                  <p>Unit price</p>
-                  <p>Total</p>
-                  <button>+ Add line</button>
-                </div>
-                <ul>
-                  <li className='detail-item'>
-                    <p>MXRF11</p>
-                    <p>12</p>
-                    <p>9,02</p>
-                    <p>108.24</p>
-                  </li>
-                </ul>
-              </div>
+              
+              {isOpen && (
+                <motion.div className="items" 
+                key="content"
+                initial="collapsed"
+                animate="open"
+                exit="collapsed"
+                variants={{
+                  open: { opacity: 1, height: "auto" },
+                  collapsed: { opacity: 0, height: 0 }
+                }}
+                transition={{ duration: 0.8, ease: [0.04, 0.62, 0.23, 0.98] }}
+                >
+                  <div className="items-header">
+                    <p>Ticker</p>
+                    <p>Qty</p>
+                    <p>Unit price</p>
+                    <p>Total</p>
+                    <button>+ Add line</button>
+                  </div>
+                  <ul>
+                    <li className='detail-item'>
+                      <p>MXRF11</p>
+                      <p>12</p>
+                      <p>9,02</p>
+                      <p>108.24</p>
+                    </li>
+                  </ul>
+                </motion.div>
+                )}
             </article>
+
+
             <article className="line">
-              <div className="summary">
-              <button>+</button>
-                <p>6545654</p>
-                <p>2352,00</p>
-                <p>21/01/2021</p>
-                <p>2,15</p>
-                <p>2354,15</p>
-              </div>
+            
+            <div className="summary">
+              <button>v</button>
+              <p>6545654</p>
+              <p>2352,00</p>
+              <p>21/01/2021</p>
+              <p>2,15</p>
+              <p>2354,15</p>
+            </div>
+            
               <div className="items">
                 <div className="items-header">
                   <p>Ticker</p>
@@ -112,34 +134,44 @@ function App() {
                   </li>
                 </ul>
               </div>
-            </article>
-            <article className="line">
+            
+          </article>
+
+
+
+          <article className="line">
+            
               <div className="summary">
-                <button>+</button>
+                <button>v</button>
                 <p>6545654</p>
                 <p>2352,00</p>
                 <p>21/01/2021</p>
                 <p>2,15</p>
                 <p>2354,15</p>
               </div>
-              <div className="items">
-                <div className="items-header">
-                  <p>Ticker</p>
-                  <p>Qty</p>
-                  <p>Unit price</p>
-                  <p>Total</p>
-                  <button>+ Add line</button>
+              
+                <div className="items">
+                  <div className="items-header">
+                    <p>Ticker</p>
+                    <p>Qty</p>
+                    <p>Unit price</p>
+                    <p>Total</p>
+                    <button>+ Add line</button>
+                  </div>
+                  <ul>
+                    <li className='detail-item'>
+                      <p>MXRF11</p>
+                      <p>12</p>
+                      <p>9,02</p>
+                      <p>108.24</p>
+                    </li>
+                  </ul>
                 </div>
-                <ul>
-                  <li className='detail-item'>
-                    <p>MXRF11</p>
-                    <p>12</p>
-                    <p>9,02</p>
-                    <p>108.24</p>
-                  </li>
-                </ul>
-              </div>
+              
             </article>
+
+
+
           </div>
         </div>
       </Container>
