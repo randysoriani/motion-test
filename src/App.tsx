@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import {GlobalStyle} from './styles/global';
 
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 
 const Container = styled.div`
@@ -74,6 +74,7 @@ function App() {
                 <p>2354,15</p>
               </div>
               
+              <AnimatePresence initial={false}>
               {isOpen && (
                 <motion.div className="items" 
                 key="content"
@@ -84,7 +85,7 @@ function App() {
                   open: { opacity: 1, height: "auto" },
                   collapsed: { opacity: 0, height: 0 }
                 }}
-                transition={{ duration: 0.8, ease: [0.04, 0.62, 0.23, 0.98] }}
+                transition={{ duration: 0.2 }}
                 >
                   <div className="items-header">
                     <p>Ticker</p>
@@ -103,6 +104,7 @@ function App() {
                   </ul>
                 </motion.div>
                 )}
+                </AnimatePresence>
             </article>
 
 
