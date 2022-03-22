@@ -1,0 +1,48 @@
+{
+    "bids": [
+        {
+            "invoice_number": 1359098,
+            "trading_date": "2019-07-10",
+            "settlement_fee": 26,
+            "net_value": 95575,
+            "emolumentos": 4,
+            "invoice_total": 95605,
+            "lines": [
+                {
+                    "ticker": "BBPO11",
+                    "qty": 2,
+                    "unit_price": 14765,
+                    "d_c": "d"
+                },
+                {
+                    "ticker": "SDIL11",
+                    "qty": 3,
+                    "unit_price": 11001,
+                    "d_c": "d"
+                },
+                {
+                    "ticker": "XPML11",
+                    "qty": 3,
+                    "unit_price": 11014,
+                    "d_c": "d"
+                }
+            ]
+        },
+        {
+            "invoice_number": 1342836,
+            "trading_date": "2019-07-11",
+            "settlement_fee": 5,
+            "net_value": 20500,
+            "emolumentos": 0,
+            "invoice_total": 20505,
+            "lines": [
+                {
+                    "ticker": "XPLG11",
+                    "qty": 2,
+                    "unit_price": 10250,
+                    "d_c": "d"
+                }
+            ]
+        }
+    ]
+}
