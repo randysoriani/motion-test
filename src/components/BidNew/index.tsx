@@ -12,7 +12,6 @@ export function BidNew({handleCloseNewBid}: IBidNewProps){
             <input type="text" placeholder='Date' />
             <input type="text" placeholder='Taxes' />
             <input type="text" placeholder='Invoice net' />
-            <button onClick={handleCloseNewBid}>Cancel</button>
             <button>Save</button>
         </Container>
     )

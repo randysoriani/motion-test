@@ -9,9 +9,14 @@ interface IBidInfoProps{
 export function BidInfo({isLinesOpen, setIsLinesOpen}: IBidInfoProps){
     return(
         <Container>
-            <motion.button className='toggle-button' onClick={()=>{setIsLinesOpen(!isLinesOpen)}}  initial="closed"
+            <motion.button 
+                className='toggle-button'
+                onClick={()=>{setIsLinesOpen(!isLinesOpen)}}  
+                initial="closed"
                 animate={isLinesOpen ? "opened" : "closed"}
-                variants={{ "opened": { rotate: '180deg' }, "closed": { rotate: '0deg'} }} >▼
+                variants={{ "opened": { rotate: '180deg' }, "closed": { rotate: '0deg'} }}
+            >
+                ▼
             </motion.button>
             <p>6545654</p>
             <p>2352,00</p>
@@ -23,8 +28,27 @@ export function BidInfo({isLinesOpen, setIsLinesOpen}: IBidInfoProps){
 }
 
 const Container = styled.div`
+    width: 100%;
+
     display: grid;
-    grid-template-columns: 20px repeat(6, 1fr);
+    grid-template-columns: 4rem repeat(6, 1fr);
     column-gap: 1rem;
     color: var(--gray-600);
+    background: white;
+    padding: .5rem 1rem;
+    border-radius: 0.25rem;
+    box-shadow: var(--box-shadow);
+    
+    button{
+        border: none;
+        background: none;
+        width: 1.5rem;
+        
+        transition: color 0.3s;
+
+        &:hover{
+            color: var(--gray-400);
+            transform: scale(2);
+        }
+    }
 `

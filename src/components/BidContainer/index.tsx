@@ -20,7 +20,7 @@ export function BidContainer(){
 
     return(
         <Container>
-            <article className="line">
+
                 <BidInfo isLinesOpen={isLinesOpen} setIsLinesOpen={setIsLinesOpen} />
  
                 <AnimatePresence initial={false}>
@@ -78,11 +78,11 @@ export function BidContainer(){
                 </motion.div>
                 )}
                 </AnimatePresence>
-            </article>
+
         </Container>
     )
 }
 
 const Container = styled.div`
-
+    width: 100%;
 `
