@@ -20,8 +20,7 @@ export function BidContainer(){
 
     return(
         <Container>
-
-                <BidInfo isLinesOpen={isLinesOpen} setIsLinesOpen={setIsLinesOpen} />
+            <BidInfo isLinesOpen={isLinesOpen} setIsLinesOpen={setIsLinesOpen} />
  
                 <AnimatePresence initial={false}>
                     {isLinesOpen && (

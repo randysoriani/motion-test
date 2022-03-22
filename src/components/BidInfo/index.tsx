@@ -8,22 +8,34 @@ interface IBidInfoProps{
 
 export function BidInfo({isLinesOpen, setIsLinesOpen}: IBidInfoProps){
     return(
-        <Container>
-            <motion.button 
-                className='toggle-button'
-                onClick={()=>{setIsLinesOpen(!isLinesOpen)}}  
-                initial="closed"
-                animate={isLinesOpen ? "opened" : "closed"}
-                variants={{ "opened": { rotate: '180deg' }, "closed": { rotate: '0deg'} }}
-            >
-                ▼
-            </motion.button>
-            <p>6545654</p>
-            <p>2352,00</p>
-            <p>21/01/2021</p>
-            <p>2,15</p>
-            <p>2354,15</p>
-        </Container>
+        <>
+            <Container>
+                <motion.button 
+                    className='toggle-button'
+                    onClick={()=>{setIsLinesOpen(!isLinesOpen)}}  
+                    initial="closed"
+                    animate={isLinesOpen ? "opened" : "closed"}
+                    variants={{ "opened": { rotate: '180deg' }, "closed": { rotate: '0deg'} }}
+                >
+                    ▼
+                </motion.button>
+                <p>6545654</p>
+                <p>2352,00</p>
+                <p>21/01/2021</p>
+                <p>2,15</p>
+                <p>2354,15</p>
+            </Container>
+            <div>
+                <div>
+                    <p>Holder</p>
+                    <p>Invoice number</p>
+                    <p>Trading date</p>
+                </div>
+                <div>
+                    
+                </div>
+            </div>
+        </>
     )
 }
 
