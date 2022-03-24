@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 
 import { GlobalStyle } from './styles/global';
-import { BidHeader } from './components/BidHeader';
-
-import { BidContainer } from './components/BidContainer';
+import { TradingsHeader } from './components/TradingsHeader';
+import { TradingsContainer } from './components/TradingsContainer';
 
 const Container = styled.div`
   width: 60rem;
@@ -22,8 +21,8 @@ function App() {
     <>
       <GlobalStyle />
       <Container>
-          <BidHeader />
-          <BidContainer />
+          <TradingsHeader />
+          <TradingsContainer />
       </Container>
     </>
   )

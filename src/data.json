@@ -1,12 +1,16 @@
 {
-    "bids": [
+    "tradings": [
         {
+            "id": 1,
             "invoice_number": 1359098,
             "trading_date": "2019-07-10",
             "settlement_fee": 26,
             "net_value": 95575,
             "emolumentos": 4,
             "invoice_total": 95605,
+            "holder": "rico",
+            "holder_img_url": "/public/rico.png",
+            "invoice_file_url": "/public/inv1.pdf",
             "lines": [
                 {
                     "ticker": "BBPO11",
@@ -29,12 +33,16 @@
             ]
         },
         {
+            "id": 2,
             "invoice_number": 1342836,
             "trading_date": "2019-07-11",
             "settlement_fee": 5,
             "net_value": 20500,
             "emolumentos": 0,
             "invoice_total": 20505,
+            "holder": "rico",
+            "holder_img_url": "/public/rico.png",
+            "invoice_file_url": "/public/inv2.pdf",
             "lines": [
                 {
                     "ticker": "XPLG11",
