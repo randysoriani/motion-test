@@ -20,20 +20,19 @@ export function TradingRow({trade}: ITradingRowProps){
 
     return(
         <Container>
-
-                <div className="trading-info">
-                    <button className="icon-btn" onClick={()=>{setIsExpanded(!isExpanded)}}><BsFillCaretDownFill /></button>
-                    <p>{trade.holder}</p>
-                    <p>{trade.inv_number}</p>
-                    <p>{trade.tr_date}</p>
-                    <p>{trade.net}</p>
-                    <p>{trade.inv_total}</p>
-                    <div>
-                        <button className="icon-btn" ><FiEdit2 /></button>
-                        <button className="icon-btn" ><FiTrash /></button>
-                    </div>
+            <div className="trading-info">
+                <button className="icon-btn" onClick={()=>{setIsExpanded(!isExpanded)}}><BsFillCaretDownFill /></button>
+                <p>{trade.holder}</p>
+                <p>{trade.inv_number}</p>
+                <p>{trade.tr_date}</p>
+                <p>{trade.net}</p>
+                <p>{trade.inv_total}</p>
+                <div>
+                    <motion.button className="icon-btn" ><FiEdit2 /></motion.button>
+                    <button className="icon-btn" ><FiTrash /></button>
                 </div>
-                <AnimatePresence>
+            </div>
+            <AnimatePresence>
                 {isExpanded ? (
                     <motion.div 
                         className="lines"
@@ -41,9 +40,10 @@ export function TradingRow({trade}: ITradingRowProps){
                         initial="collapsed"
                         animate="open"
                         exit="collapsed"
+                            
                         layout
                         variants={{
-                            open: { opacity: 1, height: "auto"},
+                            open: { opacity: 1, height: 'auto'},
                             collapsed: { opacity: 0, height: 0}
                         }}
                         transition={{
@@ -92,7 +92,7 @@ export function TradingRow({trade}: ITradingRowProps){
                         </div>
                     </motion.div>
                 ) : null }
-                </AnimatePresence>
+            </AnimatePresence>
         </Container>
     )
 }

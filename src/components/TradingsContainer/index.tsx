@@ -1,12 +1,12 @@
-import styled from "styled-components"
-import { TradingRow } from "../TradingRow"
+import styled from "styled-components";
+import { TradingRow } from "../TradingRow";
+import { TrandingRowExpanded } from "../TradingRowExpanded";
+
+function FormatCurrency(value: number){
+    return new Intl.NumberFormat('pt-BR', {style:'currency', currency: 'BRL'}).format( value / 100 )
+}
 
 export function TradingsContainer(){
-
-    function FormatCurrency(value: number){
-        return new Intl.NumberFormat('pt-BR', {style:'currency', currency: 'BRL'}).format( value / 100 )
-    }
-
     const trade = {
         holder: "Rico",
         inv_number: 1359098,
@@ -20,6 +20,7 @@ export function TradingsContainer(){
             <TradingRow trade={trade} />
             <TradingRow trade={trade} />
             <TradingRow trade={trade} />
+            <TrandingRowExpanded />
         </Container>
     )
 }
