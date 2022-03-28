@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import { BsFillCaretDownFill } from 'react-icons/bs';
 import { FiEdit2, FiTrash } from 'react-icons/fi';
-import { useState } from 'react'
+import { useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 
 function FormatCurrency(value: number){
     return new Intl.NumberFormat('pt-BR', {style:'currency', currency: 'BRL'}).format( value / 100 )
@@ -59,51 +60,59 @@ export function TrandingRowExpanded(){
 
 
 
-
-            { isOpen ?  
-                <div className="expanded-lines">
-                    <div className="lines-header">
-                        <p>Ticker</p>
-                        <p>Quantity</p>
-                        <p>Unit price</p>
-                        <p>Transaction type</p>
-                        <button>Add line</button>
-                    </div>
-                    <div className="new-line-form">
-                        {/* TODO:: add form to create a new trading line */}
-                    </div>
-                    <div className="line">
-                        <p>BBPO11</p>
-                        <p>2</p>
-                        <p>14765</p>
-                        <p>Debit</p>
-                        <div>
-                            <button className="icon-btn" ><FiEdit2 /></button>
-                            <button className="icon-btn" ><FiTrash /></button>
+            <AnimatePresence>
+                { isOpen ?  
+                    <motion.div 
+                        className="expanded-lines"
+                        initial={{opacity: 0, y: 50}}
+                        animate={{opacity: 1, y: 0}}
+                        exit={{opacity: 0, y: 50}}
+                        layout
+                        transition={{staggerChildren: 0.07, delayChildren: 0.2}}
+                    >
+                        <div className="lines-header">
+                            <p>Ticker</p>
+                            <p>Quantity</p>
+                            <p>Unit price</p>
+                            <p>Transaction type</p>
+                            <button>Add line</button>
                         </div>
-                    </div>
-                    <div className="line">
-                        <p>SDIL11</p>
-                        <p>3</p>
-                        <p>11001</p>
-                        <p>Debit</p>
-                        <div>
-                            <button className="icon-btn" ><FiEdit2 /></button>
-                            <button className="icon-btn" ><FiTrash /></button>
+                        <div className="new-line-form">
+                            {/* TODO:: add form to create a new trading line */}
                         </div>
-                    </div>
-                    <div className="line">
-                        <p>XPML11</p>
-                        <p>3</p>
-                        <p>11014</p>
-                        <p>Debit</p>
-                        <div>
-                            <button className="icon-btn" ><FiEdit2 /></button>
-                            <button className="icon-btn" ><FiTrash /></button>
-                        </div>
-                    </div>
-                </div>
-            : null }
+                        <motion.div className="line" initial={{opacity: 0, y: 20, scale: 0.5}} animate={{opacity: 1, y: 0, scale: 1}} transition={{delay: 0.2}} >
+                            <p>BBPO11</p>
+                            <p>2</p>
+                            <p>14765</p>
+                            <p>Debit</p>
+                            <div>
+                                <button className="icon-btn" ><FiEdit2 /></button>
+                                <button className="icon-btn" ><FiTrash /></button>
+                            </div>
+                        </motion.div>
+                        <motion.div className="line" initial={{opacity: 0, y: 20, scale: 0.5}} animate={{opacity: 1, y: 0, scale: 1}} transition={{delay: 0.3}} >
+                            <p>SDIL11</p>
+                            <p>3</p>
+                            <p>11001</p>
+                            <p>Debit</p>
+                            <div>
+                                <button className="icon-btn" ><FiEdit2 /></button>
+                                <button className="icon-btn" ><FiTrash /></button>
+                            </div>
+                        </motion.div>
+                        <motion.div className="line" initial={{opacity: 0, y: 20, scale: 0.5}} animate={{opacity: 1, y: 0, scale: 1}} transition={{delay: 0.4}} >
+                            <p>XPML11</p>
+                            <p>3</p>
+                            <p>11014</p>
+                            <p>Debit</p>
+                            <div>
+                                <button className="icon-btn" ><FiEdit2 /></button>
+                                <button className="icon-btn" ><FiTrash /></button>
+                            </div>
+                        </motion.div>
+                    </motion.div>
+                : null }
+            </AnimatePresence>
 
 
 
@@ -130,9 +139,8 @@ const Container = styled.div`
     .trading-info-expanded{
         display: grid;
         grid-template-columns: 2rem repeat(2, 1fr);
+        grid-auto-flow: row;
         grid-gap: 1rem;
-        // align-items: center;
-        // background: red;
     }
 
     .expanded-lines{
